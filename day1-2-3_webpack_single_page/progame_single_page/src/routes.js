@@ -4,7 +4,7 @@ import { PageList } from './js/PageList';
 import { PageDetail } from './js/PageDetail'; 
 
 const routes = {
-    '': Home,
+    '': PageList,
     'pagelist': PageList,
     'pagedetail': PageDetail,
   };

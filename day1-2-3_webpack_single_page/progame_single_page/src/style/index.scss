@@ -145,13 +145,18 @@ a {
   }
 }
 
-.showMoreBtn {
+#showMoreBtn {
   font-weight: 700;
   margin: 40px auto;
+  display: flex;
+  cursor: pointer;
 }
 
-.footer__line {
-  width: 130px;
-  height: 10px;
-  background-color: $main-color;
+.footer {
+  margin-top: 40px;
+  &__line {
+    width: 130px;
+    height: 10px;
+    background-color: $main-color;
+  }
 }

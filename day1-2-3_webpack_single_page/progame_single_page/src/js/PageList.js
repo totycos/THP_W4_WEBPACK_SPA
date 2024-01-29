@@ -1,4 +1,6 @@
-const PageList = (argument = '') => {
+const PageList = (argument = '', quantity = 9) => {
+  const articleQuantity = quantity
+
   const preparePage = () => {
     const cleanedArgument = argument.trim().replace(/\s+/g, '-');
     const API_KEY = process.env.RAWG_API_KEY
@@ -23,10 +25,20 @@ const PageList = (argument = '') => {
       ));
       const resultsContainer = document.querySelector('.page-list .articles');
       resultsContainer.innerHTML = resultsContent.join("\n");
+
+      // Check number of articles to display or not "Show more" button
+      const articleCount = document.querySelectorAll('.cardGame').length
+      console.log(`articleCount = ${articleCount}`)
+      if (articleCount !== 9 && articleCount !== 18)
+        document.getElementById('showMoreBtn').style.display = "none"
+      else
+        document.getElementById('showMoreBtn').style.display = "flex"
     };
 
-    const fetchList = (url, argument) => {
-      const finalURL = argument ? `${url}&search=${argument}` : url;
+    const fetchList = (url, argument, quantity) => {
+      let finalURL = argument ? `${url}&search=${argument}` : `${url}&dates=2024-01-01,2026-12-31`;
+      finalURL = quantity ? `${finalURL}&page_size=${quantity}` : `${finalURL}&page_size=9`
+      console.log(finalURL)
       fetch(finalURL)
         .then((response) => response.json())
         .then((responseData) => {
@@ -34,8 +46,8 @@ const PageList = (argument = '') => {
         });
     };
 
-    fetchList(`https://api.rawg.io/api/games?key=${API_KEY}`, cleanedArgument);
-    // https://api.rawg.io/api/games?key=7f052a404021482ca44e2012ad28545d
+    fetchList(`https://api.rawg.io/api/games?key=${API_KEY}`, cleanedArgument, articleQuantity);
+    // https://api.rawg.io/api/games?dates=2024-01-01,2026-12-31&key=7f052a404021482ca44e2012ad28545d&&page_size=9&search=zelda
   };
 
   const render = () => {
@@ -104,4 +116,18 @@ if (research.value !== null) {
   })
 }
 
+// ###### SHOW MORE ######
+// #######################
 
+// Constante
+const showMore = document.getElementById('showMoreBtn')
+
+// Listener
+showMore.addEventListener('click', function () {
+  const articleCount = document.querySelectorAll('.cardGame').length
+  if (articleCount === 9)
+    PageList(undefined, 18)
+  
+  if (articleCount === 18)
+    PageList(undefined, 27)
+})
