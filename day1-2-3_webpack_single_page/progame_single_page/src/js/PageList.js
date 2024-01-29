@@ -51,30 +51,57 @@ const PageList = (argument = '') => {
   render();
 };
 
-  export { PageList };
+export { PageList };
 
-  const buildPlatforms = (platformsArray) => {
-    let svgs = []
-    platformsArray.forEach((element) => {
-      if (element === "playstation")
-       svgs.push(`<img src='src/assets/images/ps4.svg' alt='ps4 logo'>`)
 
-       if (element === "xbox")
-       svgs.push(`<img src='src/assets/images/xbox.svg' alt='xbox logo'>` )
+// Set svg icones
+const buildPlatforms = (platformsArray) => {
+  let svgs = []
+  platformsArray.forEach((element) => {
+    if (element === "playstation")
+      svgs.push(`<img src='src/assets/images/ps4.svg' alt='ps4 logo'>`)
 
-       if (element === "pc")
-       svgs.push(`<img src='src/assets/images/windows.svg' alt='windows logo'>`)
+    if (element === "xbox")
+      svgs.push(`<img src='src/assets/images/xbox.svg' alt='xbox logo'>`)
 
-       if (element === "nintendo")
-       svgs.push(`<img src='src/assets/images/switch.svg' alt='switch logo'>`)
+    if (element === "pc")
+      svgs.push(`<img src='src/assets/images/windows.svg' alt='windows logo'>`)
 
-       if (element === "mac")
-       svgs.push(`<img src='src/assets/images/linux.svg' alt='linux logo'>`)
+    if (element === "nintendo")
+      svgs.push(`<img src='src/assets/images/switch.svg' alt='switch logo'>`)
 
-       if (element === "android" || element === "ios")
-       svgs.push(`<img src='src/assets/images/mobile.svg' alt='mobile logo'>`)
+    if (element === "mac")
+      svgs.push(`<img src='src/assets/images/linux.svg' alt='linux logo'>`)
 
-       return ""
-    })
-    return svgs.join("") 
-  }
+    if (element === "android" || element === "ios")
+      svgs.push(`<img src='src/assets/images/mobile.svg' alt='mobile logo'>`)
+
+    return ""
+  })
+  return svgs.join("")
+}
+
+// ######## FORM #########
+// #######################
+
+// Form constantes
+const myFormBtn = document.getElementById("researchBox__searchBtn");
+const research = document.getElementById("researchBlock__research");
+
+// Form submit listener : 
+if (research.value !== null) {
+  // On click
+  myFormBtn.addEventListener('click', function() {
+    PageList(research.value);
+  });
+
+  // On "enter" key pressed
+  research.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      PageList(research.value)
+    }
+  })
+}
+
+

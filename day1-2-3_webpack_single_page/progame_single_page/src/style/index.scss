@@ -45,6 +45,37 @@ a {
   text-decoration: none;
 }
 
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#myForm {
+  display: flex;
+  align-items: center;
+}
+
+.myForm__researchBlock {
+  #researchBox__searchBtn{
+    position: relative;
+    z-index: 10;
+    top: 4px;
+    left: 30px;
+    width: 16px;
+    cursor: pointer;
+  }
+  #researchBlock__research {
+    border: 1px solid white;
+    border-radius: 24px;
+    background-color: $bg-color;
+    height: 24px;
+    width: 150px;
+    padding: 0 10px 0 32px;
+    color: $second-color;
+  }
+}
+
 .introBlock {
   margin: 20px 0px 40px;
 }
