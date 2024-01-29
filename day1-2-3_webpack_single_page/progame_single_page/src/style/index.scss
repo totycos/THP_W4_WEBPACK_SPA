@@ -101,6 +101,17 @@ a {
   background-color: silver;
   height: calc(100%);
   background-color: $bg-color;
+  .info__genre {
+    font-weight: 200;
+    font-size: 14px;
+  }
+}
+
+.cardGame__platform {
+  margin-left: -6px;
+  img {
+    margin: 6px
+  }
 }
 
 .showMoreBtn {
