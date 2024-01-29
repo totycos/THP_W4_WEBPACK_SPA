@@ -1,0 +1,114 @@
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/css-loader@6.9.1_webpack@5.90.0/node_modules/css-loader/dist/cjs.js!./node_modules/.pnpm/postcss-loader@8.0.0_postcss@8.4.33_webpack@5.90.0/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/.pnpm/sass-loader@14.0.0_node-sass@9.0.0_sass@1.70.0_webpack@5.90.0/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[3]!./src/style/index.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@font-face {
+  font-family: "Montserrat-italic";
+  src: url(7e687123cd4528224ce5.ttf);
+}
+@font-face {
+  font-family: "Montserrat-italic";
+  src: url(7451547bd28d8dddbeea.ttf);
+}
+body {
+  background-color: #191919;
+  padding: 40px;
+  font-family: "Montserrat";
+  max-width: 924px;
+  margin: auto;
+}
+
+h1 {
+  font-weight: 700;
+  color: #cf1237;
+  font-size: 36px;
+}
+
+h2 {
+  font-weight: 700;
+  color: white;
+  font-size: 36px;
+  margin: 0;
+}
+
+h3 {
+  margin: 4px 0;
+  color: white;
+}
+
+p {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+.introBlock {
+  margin: 20px 0px 40px;
+}
+
+.btn {
+  background-color: #cf1237;
+  height: 34px;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0px 30px;
+  display: flex;
+  align-items: center;
+}
+
+.plateformSelectorBtn {
+  margin: 10px 0;
+}
+
+#pageContent {
+  margin-left: -10px;
+}
+
+.articles {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cardGame {
+  width: calc(33.33% - 20px);
+  margin: 10px;
+}
+
+.cardGame__imgBlock {
+  position: relative;
+}
+
+.imgBlock__img {
+  width: 100%;
+}
+.imgBlock__img img {
+  width: -webkit-fill-available;
+}
+.imgBlock__img:hover ~ .imgBlock__info {
+  display: block;
+}
+
+.imgBlock__info {
+  display: none;
+  background-image: none;
+  z-index: 2;
+  position: absolute;
+  top: 0px;
+  padding: 0px 10px;
+  width: calc(100% - 20px);
+  background-color: silver;
+  height: 100%;
+  background-color: #191919;
+}
+
+.showMoreBtn {
+  font-weight: 700;
+  margin: 40px auto;
+}
+
+.footer__line {
+  width: 130px;
+  height: 10px;
+  background-color: #cf1237;
+}

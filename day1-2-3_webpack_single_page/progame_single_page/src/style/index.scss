@@ -1,0 +1,115 @@
+@font-face {
+  font-family: 'Montserrat-italic';
+  src: url('../assets/fonts/Montserrat-VariableFont_wght.ttf');
+}
+@font-face {
+  font-family: 'Montserrat-italic';
+  src: url('../assets/fonts/Montserrat-Italic-VariableFont_wght.ttf');
+}
+
+$bg-color: #191919;
+$main-color: #cf1237;
+$second-color: white;
+
+body {
+  background-color: $bg-color;
+  padding: 40px;
+  font-family: 'Montserrat';
+  max-width: 924px;
+  margin: auto;
+}
+
+h1 {
+  font-weight: 700;
+  color: $main-color;
+  font-size: 36px;
+}
+
+h2 {
+  font-weight: 700;
+  color: $second-color;
+  font-size: 36px;
+  margin: 0;
+}
+
+h3 {
+  margin: 4px 0;
+  color: $second-color
+}
+
+p {
+  color: $second-color;
+}
+
+a {
+  text-decoration: none;
+}
+
+.introBlock {
+  margin: 20px 0px 40px;
+}
+
+.btn {
+  background-color: $main-color;
+  height: 34px;
+  width: fit-content;
+  padding: 0px 30px;
+  display: flex;
+  align-items: center;
+}
+
+.plateformSelectorBtn {
+  margin: 10px 0;
+}
+
+#pageContent {
+  margin-left: -10px;
+}
+
+.articles {
+  display: flex;
+  flex-wrap: wrap;
+}    
+
+.cardGame {
+  width: calc(33.33% - 20px);
+  margin: 10px;
+} 
+
+.cardGame__imgBlock {
+  position: relative;
+}
+
+.imgBlock__img {
+  width: 100%;
+  img {
+    width: -webkit-fill-available;
+  }
+  &:hover ~ .imgBlock__info {
+    display: block;
+  }
+}
+
+.imgBlock__info {
+  display: none;
+  background-image: none;
+  z-index: 2;
+  position: absolute;
+  top: 0px;
+  padding: 0px 10px;
+  width: calc(100% - 20px);
+  background-color: silver;
+  height: calc(100%);
+  background-color: $bg-color;
+}
+
+.showMoreBtn {
+  font-weight: 700;
+  margin: 40px auto;
+}
+
+.footer__line {
+  width: 130px;
+  height: 10px;
+  background-color: $main-color;
+}
