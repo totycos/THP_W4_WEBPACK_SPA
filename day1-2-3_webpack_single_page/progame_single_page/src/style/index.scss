@@ -1,3 +1,4 @@
+
 @font-face {
   font-family: 'Montserrat-italic';
   src: url('../assets/fonts/Montserrat-VariableFont_wght.ttf');
@@ -45,6 +46,16 @@ a {
   text-decoration: none;
 }
 
+input:-internal-autofill-selected {
+  //appearance: menulist-button;
+  background-image: none !important;
+  background-color: $bg-color !important;
+  color: $second-color !important;
+  :focus-visible {
+    outline: none!important;
+  }
+}
+
 .topBar {
   display: flex;
   align-items: center;
@@ -84,22 +95,35 @@ a {
   background-color: $main-color;
   height: 34px;
   width: fit-content;
-  padding: 0px 30px;
   display: flex;
   align-items: center;
 }
 
 .plateformSelectorBtn {
   margin: 10px 0;
+  padding: 0px 10px 0 20px;
+  color: $second-color;
+  #platformSelect {
+    background-color: $main-color;
+    color: $second-color;
+    border: 0px solid black;
+    font-family: 'Montserrat';
+    font-size: 16px;
+    cursor: pointer;
+    &:focus-visible {
+      outline: none;
+    }
+  }
 }
 
 #pageContent {
-  margin-left: -10px;
+  
 }
 
 .articles {
   display: flex;
   flex-wrap: wrap;
+  margin-left: -10px;
 }    
 
 .cardGame {
@@ -150,6 +174,7 @@ a {
   margin: 40px auto;
   display: flex;
   cursor: pointer;
+  padding: 0px 30px;
 }
 
 .footer {

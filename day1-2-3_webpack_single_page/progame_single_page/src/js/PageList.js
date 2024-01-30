@@ -1,4 +1,4 @@
-const PageList = (argument = '', quantity = 9) => {
+const PageList = (argument = '', quantity = 9, platform= '') => {
   const articleQuantity = quantity
 
   const preparePage = () => {
@@ -35,9 +35,10 @@ const PageList = (argument = '', quantity = 9) => {
         document.getElementById('showMoreBtn').style.display = "flex"
     };
 
-    const fetchList = (url, argument, quantity) => {
+    const fetchList = (url, argument, quantity, platform) => {
       let finalURL = argument ? `${url}&search=${argument}` : `${url}&dates=2024-01-01,2026-12-31`;
       finalURL = quantity ? `${finalURL}&page_size=${quantity}` : `${finalURL}&page_size=9`
+      finalURL = platform ? `${finalURL}&parent_platforms=${platform}` : finalURL
       console.log(finalURL)
       fetch(finalURL)
         .then((response) => response.json())
@@ -46,7 +47,8 @@ const PageList = (argument = '', quantity = 9) => {
         });
     };
 
-    fetchList(`https://api.rawg.io/api/games?key=${API_KEY}`, cleanedArgument, articleQuantity);
+    fetchList(`https://api.rawg.io/api/games?key=${API_KEY}`, cleanedArgument, articleQuantity, platformSelect.value);
+
     // https://api.rawg.io/api/games?dates=2024-01-01,2026-12-31&key=7f052a404021482ca44e2012ad28545d&&page_size=9&search=zelda
   };
 
@@ -116,18 +118,30 @@ if (research.value !== null) {
   })
 }
 
+
 // ###### SHOW MORE ######
 // #######################
-
-// Constante
+// Constante "Show more" button
 const showMore = document.getElementById('showMoreBtn')
 
 // Listener
 showMore.addEventListener('click', function () {
   const articleCount = document.querySelectorAll('.cardGame').length
   if (articleCount === 9)
-    PageList(undefined, 18)
+    PageList(research.value, 18)
   
   if (articleCount === 18)
-    PageList(undefined, 27)
+    PageList(research.value, 27)
+})
+
+
+// ### SELECT PLATFORM ###
+// #######################
+// Constante platform selection
+const platformSelect = document.getElementById('platformSelect')
+
+// Listener
+platformSelect.addEventListener('change', function() {
+  const articleCount = document.querySelectorAll('.cardGame').length
+  PageList(research.value, articleCount, platformSelect.value)
 })

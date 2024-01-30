@@ -43,6 +43,15 @@ a {
   text-decoration: none;
 }
 
+input:-internal-autofill-selected {
+  background-image: none !important;
+  background-color: #191919 !important;
+  color: white !important;
+}
+input:-internal-autofill-selected :focus-visible {
+  outline: none !important;
+}
+
 .topBar {
   display: flex;
   align-items: center;
@@ -81,22 +90,31 @@ a {
   height: 34px;
   width: -moz-fit-content;
   width: fit-content;
-  padding: 0px 30px;
   display: flex;
   align-items: center;
 }
 
 .plateformSelectorBtn {
   margin: 10px 0;
+  padding: 0px 10px 0 20px;
+  color: white;
 }
-
-#pageContent {
-  margin-left: -10px;
+.plateformSelectorBtn #platformSelect {
+  background-color: #cf1237;
+  color: white;
+  border: 0px solid black;
+  font-family: "Montserrat";
+  font-size: 16px;
+  cursor: pointer;
+}
+.plateformSelectorBtn #platformSelect:focus-visible {
+  outline: none;
 }
 
 .articles {
   display: flex;
   flex-wrap: wrap;
+  margin-left: -10px;
 }
 
 .cardGame {
@@ -147,6 +165,7 @@ a {
   margin: 40px auto;
   display: flex;
   cursor: pointer;
+  padding: 0px 30px;
 }
 
 .footer {
