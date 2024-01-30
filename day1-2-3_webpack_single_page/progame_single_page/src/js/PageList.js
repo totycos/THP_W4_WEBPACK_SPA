@@ -1,5 +1,7 @@
 const PageList = (argument = '', quantity = 9, platform= '') => {
   const articleQuantity = quantity
+  const platformSelectValue = platform
+  console.log(platformSelectValue)
 
   const preparePage = () => {
     const cleanedArgument = argument.trim().replace(/\s+/g, '-');
@@ -10,7 +12,7 @@ const PageList = (argument = '', quantity = 9, platform= '') => {
         `<article class="cardGame">
           <div class="cardGame__imgBlock">
             <div class="imgBlock__img">
-              <img src="${article.background_image}" alt="game image">
+              <img src="${article.background_image || './src/assets/images/default-img.png'}" alt="game image">
             </div>
             <div class="imgBlock__info">
               <p>${article.released}</p>
@@ -28,15 +30,17 @@ const PageList = (argument = '', quantity = 9, platform= '') => {
 
       // Check number of articles to display or not "Show more" button
       const articleCount = document.querySelectorAll('.cardGame').length
-      console.log(`articleCount = ${articleCount}`)
       if (articleCount !== 9 && articleCount !== 18)
         document.getElementById('showMoreBtn').style.display = "none"
       else
         document.getElementById('showMoreBtn').style.display = "flex"
+
+      showMoreListener() 
+      platfromListener()
     };
 
     const fetchList = (url, argument, quantity, platform) => {
-      let finalURL = argument ? `${url}&search=${argument}` : `${url}&dates=2024-01-01,2026-12-31`;
+      let finalURL = argument ? `${url}&search=${argument}` : `${url}&dates=2024-01-01,2035-12-31`;
       finalURL = quantity ? `${finalURL}&page_size=${quantity}` : `${finalURL}&page_size=9`
       finalURL = platform ? `${finalURL}&parent_platforms=${platform}` : finalURL
       console.log(finalURL)
@@ -49,14 +53,43 @@ const PageList = (argument = '', quantity = 9, platform= '') => {
 
     fetchList(`https://api.rawg.io/api/games?key=${API_KEY}`, cleanedArgument, articleQuantity, platformSelect.value);
 
-    // https://api.rawg.io/api/games?dates=2024-01-01,2026-12-31&key=7f052a404021482ca44e2012ad28545d&&page_size=9&search=zelda
   };
 
   const render = () => {
     pageContent.innerHTML = `
+      <div class="introBlock">
+          <h2 class="introBlock__title">Welcome,</h2>
+          <p class="introBlock__text">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit ab at sunt mollitia, exercitationem dolore
+              doloremque. Ducimus et dolorum inventore facilis perspiciatis modi ullam repellendus id laudantium dolorem
+              velit repudiandae ad voluptatem quam nobis, odit explicabo magni illum corrupti molestiae dicta quae
+              assumenda. Voluptas impedit vero eligendi, eaque quae soluta quasi ea dolores sit odio aut provident unde
+              quas qui iure ratione voluptatem cupiditate enim. Ex facere eligendi veniam perspiciatis ut impedit commodi,
+              dignissimos laboriosam quis iste atque dolore delectus at ab animi, repellat illo iusto! Sequi iste dolores
+              ex voluptates fugiat. Placeat neque mollitia quis voluptatibus corporis laborum quisquam!
+          </p>
+      </div>
+
+      <div class="btn plateformSelectorBtn">
+          <label for="platform-select">Platform :</label>
+          <select name="platform" id="platformSelect">
+              <option value="">any</option>
+              <option value="2" ${platformSelectValue === '2' ? 'selected' : ''}>PlayStation</option>
+              <option value="3" ${platformSelectValue === '3' ? 'selected' : ''}>Xbox</option>
+              <option value="7" ${platformSelectValue === '7' ? 'selected' : ''}>Nintendo</option>
+              <option value="1" ${platformSelectValue === '1' ? 'selected' : ''}>PC</option>
+              <option value="4,8" ${platformSelectValue.includes('4') || platformSelectValue.includes('8') ? 'selected' : ''}>Mobile</option>
+              <option value="5,6" ${platformSelectValue.includes('5') || platformSelectValue.includes('6') ? 'selected' : ''}>Linux</option>
+          </select>
+      </div>
+
       <section class="page-list">
-        <div class="articles">Loading...</div>
+        <div class="articles"><p class="loading">LOADING...</p></div>
       </section>
+
+      <div class="btn" id="showMoreBtn">
+        <p class="showMoreBtn__text">Show more</p>
+      </div>
     `;
 
     preparePage();
@@ -113,7 +146,7 @@ if (research.value !== null) {
   research.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
       event.preventDefault();
-      PageList(research.value)
+      PageList(research.value, undefined, platformSelect.value)
     }
   })
 }
@@ -121,27 +154,34 @@ if (research.value !== null) {
 
 // ###### SHOW MORE ######
 // #######################
-// Constante "Show more" button
-const showMore = document.getElementById('showMoreBtn')
+const showMoreListener = () => {
+  // Constante "Show more" button
+  const showMore = document.getElementById('showMoreBtn')
 
-// Listener
-showMore.addEventListener('click', function () {
-  const articleCount = document.querySelectorAll('.cardGame').length
-  if (articleCount === 9)
-    PageList(research.value, 18)
-  
-  if (articleCount === 18)
-    PageList(research.value, 27)
-})
+  // Listener
+  showMore.addEventListener('click', function () {
+    const articleCount = document.querySelectorAll('.cardGame').length
+    if (articleCount === 9)
+      PageList(research.value, 18, platformSelect.value)
+    
+    if (articleCount === 18)
+      PageList(research.value, 27, platformSelect.value)
+  })
+}
 
 
 // ### SELECT PLATFORM ###
 // #######################
-// Constante platform selection
-const platformSelect = document.getElementById('platformSelect')
+const platfromListener = () => {
+  // Constante platform selection
+  const platformSelect = document.getElementById('platformSelect')
 
-// Listener
-platformSelect.addEventListener('change', function() {
-  const articleCount = document.querySelectorAll('.cardGame').length
-  PageList(research.value, articleCount, platformSelect.value)
-})
+  // Listener
+  platformSelect.addEventListener('change', function() {
+    const articleCount = document.querySelectorAll('.cardGame').length
+    console.log(`research value = ${research.value}`)
+    console.log(`articleCount = ${articleCount}`)
+    console.log(`platform value = ${platformSelect.value}`)
+    PageList(research.value, articleCount, platformSelect.value)
+  })
+}

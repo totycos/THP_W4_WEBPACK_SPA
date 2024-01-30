@@ -1,8 +1,8 @@
-
 @font-face {
   font-family: 'Montserrat-italic';
   src: url('../assets/fonts/Montserrat-VariableFont_wght.ttf');
 }
+
 @font-face {
   font-family: 'Montserrat-italic';
   src: url('../assets/fonts/Montserrat-Italic-VariableFont_wght.ttf');
@@ -38,6 +38,18 @@ h3 {
   color: $second-color
 }
 
+h4 {
+  font-size: 30px;
+  font-weight: 700;
+  color: $main-color;
+}
+
+h5 {
+  font-size: 16px;
+  color: $second-color;
+  margin: 20px 0px 0px;
+}
+
 p {
   color: $second-color;
 }
@@ -46,13 +58,17 @@ a {
   text-decoration: none;
 }
 
+// ######## PAGE LIST #########
+// ############################
+
 input:-internal-autofill-selected {
   //appearance: menulist-button;
   background-image: none !important;
   background-color: $bg-color !important;
   color: $second-color !important;
+
   :focus-visible {
-    outline: none!important;
+    outline: none !important;
   }
 }
 
@@ -68,7 +84,7 @@ input:-internal-autofill-selected {
 }
 
 .myForm__researchBlock {
-  #researchBox__searchBtn{
+  #researchBox__searchBtn {
     position: relative;
     z-index: 10;
     top: 4px;
@@ -76,6 +92,7 @@ input:-internal-autofill-selected {
     width: 16px;
     cursor: pointer;
   }
+
   #researchBlock__research {
     border: 1px solid white;
     border-radius: 24px;
@@ -103,6 +120,7 @@ input:-internal-autofill-selected {
   margin: 10px 0;
   padding: 0px 10px 0 20px;
   color: $second-color;
+
   #platformSelect {
     background-color: $main-color;
     color: $second-color;
@@ -110,26 +128,30 @@ input:-internal-autofill-selected {
     font-family: 'Montserrat';
     font-size: 16px;
     cursor: pointer;
+
     &:focus-visible {
       outline: none;
     }
   }
 }
 
-#pageContent {
-  
+#pageContent {}
+
+.loading {
+  font-size: 7em;
+  margin: 28px auto 0;
 }
 
 .articles {
   display: flex;
   flex-wrap: wrap;
   margin-left: -10px;
-}    
+}
 
 .cardGame {
   width: calc(33.33% - 20px);
   margin: 10px;
-} 
+}
 
 .cardGame__imgBlock {
   position: relative;
@@ -137,10 +159,12 @@ input:-internal-autofill-selected {
 
 .imgBlock__img {
   width: 100%;
+
   img {
     width: -webkit-fill-available;
   }
-  &:hover ~ .imgBlock__info {
+
+  &:hover~.imgBlock__info {
     display: block;
   }
 }
@@ -156,6 +180,7 @@ input:-internal-autofill-selected {
   background-color: silver;
   height: calc(100%);
   background-color: $bg-color;
+
   .info__genre {
     font-weight: 200;
     font-size: 14px;
@@ -164,6 +189,7 @@ input:-internal-autofill-selected {
 
 .cardGame__platform {
   margin-left: -6px;
+
   img {
     margin: 6px
   }
@@ -179,9 +205,80 @@ input:-internal-autofill-selected {
 
 .footer {
   margin-top: 40px;
+
   &__line {
     width: 130px;
     height: 10px;
     background-color: $main-color;
+  }
+}
+
+
+// ####### PAGE DETAIL ########
+// ############################
+
+.banner {
+  height: 450px;
+  width: calc(100% + 80px);
+  margin-left: -40px;
+  margin-bottom: 50px;
+  background-position: center;
+  position: relative;
+
+  &__websiteBtn {
+    width: 250px;
+    background-color: $main-color;
+    display: flex;
+    height: 30px;
+    padding: 14px;
+    align-items: center;
+    position: relative;
+    top: 342px;
+    left: calc(100% - 330px);
+    justify-content: space-between;
+    cursor: pointer;
+
+    p {
+      font-weight: 600;
+    }
+
+    img {
+      width: 20px;
+    }
+  }
+}
+
+.titleBox {
+  display: flex;
+  justify-content: space-between;
+
+  .vote {
+    font-weight: 600;
+    color: $main-color;
+  }
+}
+
+.tag {
+  margin-top: 0px;
+}
+
+.blockText {
+  margin-top: 0px; 
+  margin-bottom: 0px;
+  p:first-child {
+    margin-top: 0px;
+  }
+  p:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+.gameInfoContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -60px;
+  .gameInfoBlock {
+    margin: 0px 60px;
+
   }
 }
