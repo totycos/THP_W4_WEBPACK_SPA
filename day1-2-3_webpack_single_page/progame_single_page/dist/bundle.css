@@ -143,15 +143,14 @@ input:-internal-autofill-selected :focus-visible {
 .cardGame__imgBlock {
   position: relative;
 }
-
-.imgBlock__img {
+.cardGame__imgBlock:hover .imgBlock__info {
+  display: block;
+}
+.cardGame__imgBlock .imgBlock__img {
   width: 100%;
 }
-.imgBlock__img img {
+.cardGame__imgBlock .imgBlock__img img {
   width: -webkit-fill-available;
-}
-.imgBlock__img:hover ~ .imgBlock__info {
-  display: block;
 }
 
 .imgBlock__info {

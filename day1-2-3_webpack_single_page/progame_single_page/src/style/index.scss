@@ -136,8 +136,6 @@ input:-internal-autofill-selected {
   }
 }
 
-#pageContent {}
-
 .loading {
   font-size: 7em;
   margin: 28px auto 0;
@@ -156,17 +154,15 @@ input:-internal-autofill-selected {
 
 .cardGame__imgBlock {
   position: relative;
+  &:hover .imgBlock__info {
+    display: block;
 }
 
 .imgBlock__img {
   width: 100%;
-
   img {
     width: -webkit-fill-available;
   }
-
-  &:hover~.imgBlock__info {
-    display: block;
   }
 }
 
