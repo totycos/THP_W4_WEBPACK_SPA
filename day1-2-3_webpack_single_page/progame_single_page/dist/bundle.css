@@ -265,3 +265,11 @@ input:-internal-autofill-selected :focus-visible {
   font-weight: 500;
   margin-bottom: 10px;
 }
+
+.screenshot {
+  margin-left: -10px;
+}
+.screenshot__img {
+  width: calc(50% - 20px);
+  margin: 10px;
+}

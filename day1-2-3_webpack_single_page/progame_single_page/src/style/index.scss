@@ -293,3 +293,11 @@ input:-internal-autofill-selected {
     margin-bottom: 10px
   }
 }
+
+.screenshot {
+  margin-left: -10px;
+  &__img {
+    width: calc(50% - 20px);
+    margin: 10px;
+  }
+}
