@@ -21,10 +21,18 @@ const PageList = (argument = '', quantity = 9, platform= '') => {
               <p class="info__genre">${article.genres.map(genre => genre.name).join(', ')}
             </div>
           </div>
-          <a href="#pagedetail/${article.id}" data-screenshots=${article.short_screenshots.map(screenshot => screenshot.image)}><h3>${article.name}</h3></a>
+          <a href="#pagedetail/${article.id}"><h3>${article.name}</h3></a>
           <div class="cardGame__platform">${buildPlatforms(article.parent_platforms.map(e => e.platform.slug))}</div>
         </article>`
       ));
+
+      // Stock screenshots in localStorage
+        articles.forEach((article) => {
+          let screenshotArray = article.short_screenshots.map(screenshot => screenshot.image)
+          localStorage.setItem(article.id, screenshotArray);
+        })
+
+      // Inner the games templates
       const resultsContainer = document.querySelector('.page-list .articles');
       resultsContainer.innerHTML = resultsContent.join("\n");
 

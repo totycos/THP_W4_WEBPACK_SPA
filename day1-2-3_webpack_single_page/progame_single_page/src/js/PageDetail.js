@@ -1,11 +1,10 @@
-const PageDetail = (argument, screenshots = []) => {
+const PageDetail = (argument) => {
   const preparePage = () => {
     const cleanedArgument = argument.trim().replace(/\s+/g, "-");
     const API_KEY = process.env.RAWG_API_KEY
-    const screenshotArray = screenshots.split(",")
 
     const displayGame = (gameData) => {
-      const { name, released, description, background_image, website, rating, ratings_count, tags, developers, platforms, genres, publishers, stores } = gameData;
+      const { id, name, released, description, background_image, website, rating, ratings_count, tags, developers, platforms, genres, publishers, stores } = gameData;
       const articleDOM = document.querySelector(".page-detail .article");
       articleDOM.querySelector("div.titleBox h2.title").innerHTML = name;
       articleDOM.querySelector("p.release-date").innerHTML = released;
@@ -21,7 +20,9 @@ const PageDetail = (argument, screenshots = []) => {
       stores.forEach((s) => {
         document.querySelector(".buy").innerHTML += `<a href="${s.store.domain}">${s.store.name}</a>`
       })
-      screenshotArray.slice(1, 5).forEach((screenshot) => {
+
+      // Get screenshots from localStorage and build template
+      localStorage.getItem(id).split(",").slice(1, 5).forEach((screenshot) => {
         document.querySelector(".screenshot").innerHTML += `<img src="${screenshot}" class="screenshot__img" alt="game picture">`
       })
     };
