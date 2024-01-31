@@ -1,10 +1,10 @@
-const PageDetail = (argument) => {
+const PageDetail = (argument, screenshots = []) => {
   const preparePage = () => {
     const cleanedArgument = argument.trim().replace(/\s+/g, "-");
     const API_KEY = process.env.RAWG_API_KEY
 
     const displayGame = (gameData) => {
-      const { name, released, description, background_image, website, rating, ratings_count, tags, developers, platforms, genres, publishers } = gameData;
+      const { name, released, description, background_image, website, rating, ratings_count, tags, developers, platforms, genres, publishers, stores } = gameData;
       const articleDOM = document.querySelector(".page-detail .article");
       articleDOM.querySelector("div.titleBox h2.title").innerHTML = name;
       articleDOM.querySelector("p.release-date").innerHTML = released;
@@ -17,6 +17,9 @@ const PageDetail = (argument) => {
       document.querySelector(".platform").innerHTML = platforms.map(p => p.platform.name).join(", ")
       document.querySelector(".genre").innerHTML = genres.map(genre => genre.name).join(", ")
       document.querySelector(".publisher").innerHTML = publishers.map(publisher => publisher.name).join(", ")
+      stores.forEach((s) => {
+        document.querySelector(".buy").innerHTML += `<a href="${s.store.domain}">${s.store.name}</a>`
+      })
     };
 
     const fetchGame = (url, argument) => {
@@ -73,6 +76,11 @@ const PageDetail = (argument) => {
           </div>
 
           <h4>BUY</h4>
+          <div class="buy"></div>
+
+          <h4>TRAILER</h4>
+
+          <h4>SCREENSHOTS</h4>
 
         </div>
 

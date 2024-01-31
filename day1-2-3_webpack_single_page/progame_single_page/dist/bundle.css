@@ -39,6 +39,7 @@ h4 {
   font-size: 30px;
   font-weight: 700;
   color: #cf1237;
+  margin-bottom: 10px;
 }
 
 h5 {
@@ -253,4 +254,14 @@ input:-internal-autofill-selected :focus-visible {
 }
 .gameInfoContainer .gameInfoBlock {
   margin: 0px 60px;
+}
+
+.buy {
+  display: flex;
+  flex-direction: column;
+}
+.buy a {
+  color: white;
+  font-weight: 500;
+  margin-bottom: 10px;
 }

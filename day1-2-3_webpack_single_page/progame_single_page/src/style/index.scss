@@ -42,6 +42,7 @@ h4 {
   font-size: 30px;
   font-weight: 700;
   color: $main-color;
+  margin-bottom: 10px;
 }
 
 h5 {
@@ -280,5 +281,15 @@ input:-internal-autofill-selected {
   .gameInfoBlock {
     margin: 0px 60px;
 
+  }
+}
+
+.buy {
+  display: flex;
+  flex-direction: column;
+  a {
+    color: $second-color;
+    font-weight: 500;
+    margin-bottom: 10px
   }
 }
