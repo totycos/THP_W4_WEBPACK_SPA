@@ -16,11 +16,21 @@ body {
   max-width: 924px;
   margin: auto;
 }
+@media only screen and (max-width: 490px) {
+  body {
+    padding: 30px;
+  }
+}
 
 h1 {
   font-weight: 700;
   color: #cf1237;
   font-size: 36px;
+}
+@media only screen and (max-width: 490px) {
+  h1 {
+    font-size: 28px;
+  }
 }
 
 h2 {
@@ -28,6 +38,11 @@ h2 {
   color: white;
   font-size: 36px;
   margin: 0;
+}
+@media only screen and (max-width: 490px) {
+  h2 {
+    font-size: 28px;
+  }
 }
 
 h3 {
@@ -40,6 +55,11 @@ h4 {
   font-weight: 700;
   color: #cf1237;
   margin-bottom: 10px;
+}
+@media only screen and (max-width: 490px) {
+  h4 {
+    font-size: 26px;
+  }
 }
 
 h5 {
@@ -70,6 +90,11 @@ input:-internal-autofill-selected :focus-visible {
   align-items: center;
   justify-content: space-between;
 }
+@media only screen and (max-width: 490px) {
+  .topBar {
+    flex-direction: column;
+  }
+}
 
 #myForm {
   display: flex;
@@ -83,6 +108,18 @@ input:-internal-autofill-selected :focus-visible {
   left: 30px;
   width: 16px;
   cursor: pointer;
+}
+@media only screen and (max-width: 671px) {
+  .myForm__researchBlock #researchBox__searchBtn {
+    top: 25px;
+    left: 12px;
+  }
+}
+@media only screen and (max-width: 490px) {
+  .myForm__researchBlock #researchBox__searchBtn {
+    top: 4px;
+    left: 30px;
+  }
 }
 .myForm__researchBlock #researchBlock__research {
   border: 1px solid white;
@@ -128,6 +165,11 @@ input:-internal-autofill-selected :focus-visible {
   font-size: 7em;
   margin: 28px auto 0;
 }
+@media only screen and (max-width: 671px) {
+  .loading {
+    font-size: 3em;
+  }
+}
 
 .articles {
   display: flex;
@@ -139,12 +181,22 @@ input:-internal-autofill-selected :focus-visible {
   width: calc(33.33% - 20px);
   margin: 10px;
 }
+@media only screen and (max-width: 950px) {
+  .cardGame {
+    width: calc(50% - 20px);
+  }
+}
+@media only screen and (max-width: 671px) {
+  .cardGame {
+    width: calc(100% - 20px);
+  }
+}
 
 .cardGame__imgBlock {
   position: relative;
 }
 .cardGame__imgBlock:hover .imgBlock__info {
-  display: block;
+  display: flex;
 }
 .cardGame__imgBlock .imgBlock__img {
   width: 100%;
@@ -164,6 +216,9 @@ input:-internal-autofill-selected :focus-visible {
   background-color: silver;
   height: 100%;
   background-color: #191919;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
 .imgBlock__info .info__genre {
   font-weight: 200;
@@ -202,6 +257,11 @@ input:-internal-autofill-selected :focus-visible {
   background-position: center;
   position: relative;
 }
+@media only screen and (max-width: 490px) {
+  .banner {
+    margin-top: 20px;
+  }
+}
 .banner__websiteBtn {
   width: 250px;
   background-color: #cf1237;
@@ -229,6 +289,8 @@ input:-internal-autofill-selected :focus-visible {
 .titleBox .vote {
   font-weight: 600;
   color: #cf1237;
+  margin: 16px 0px 16px 20px;
+  min-width: 124px;
 }
 
 .tag {
@@ -271,4 +333,9 @@ input:-internal-autofill-selected :focus-visible {
 .screenshot__img {
   width: calc(50% - 20px);
   margin: 10px;
+}
+@media only screen and (max-width: 490px) {
+  .screenshot__img {
+    width: calc(100% - 20px);
+  }
 }

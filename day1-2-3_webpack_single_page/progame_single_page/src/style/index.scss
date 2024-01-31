@@ -8,6 +8,24 @@
   src: url('../assets/fonts/Montserrat-Italic-VariableFont_wght.ttf');
 }
 
+@mixin medium-screen {
+  @media only screen and (max-width: 950px) {
+    @content
+  }
+}
+
+@mixin small-screen {
+  @media only screen and (max-width: 671px) {
+    @content
+  }
+}
+
+@mixin mobile-screen {
+  @media only screen and (max-width: 490px) {
+    @content
+  }
+}
+
 $bg-color: #191919;
 $main-color: #cf1237;
 $second-color: white;
@@ -18,12 +36,18 @@ body {
   font-family: 'Montserrat';
   max-width: 924px;
   margin: auto;
+  @include mobile-screen {
+    padding: 30px;
+  }
 }
 
 h1 {
   font-weight: 700;
   color: $main-color;
   font-size: 36px;
+  @include mobile-screen {
+    font-size: 28px;
+  }
 }
 
 h2 {
@@ -31,6 +55,9 @@ h2 {
   color: $second-color;
   font-size: 36px;
   margin: 0;
+  @include mobile-screen {
+    font-size: 28px;
+  }
 }
 
 h3 {
@@ -43,6 +70,9 @@ h4 {
   font-weight: 700;
   color: $main-color;
   margin-bottom: 10px;
+  @include mobile-screen {
+    font-size: 26px;
+  }
 }
 
 h5 {
@@ -77,6 +107,9 @@ input:-internal-autofill-selected {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @include mobile-screen {
+    flex-direction: column;
+  }
 }
 
 #myForm {
@@ -92,6 +125,14 @@ input:-internal-autofill-selected {
     left: 30px;
     width: 16px;
     cursor: pointer;
+    @include small-screen {
+      top: 25px;
+      left: 12px;
+    }
+    @include mobile-screen {
+      top: 4px;
+      left: 30px;
+    }
   }
 
   #researchBlock__research {
@@ -139,6 +180,9 @@ input:-internal-autofill-selected {
 .loading {
   font-size: 7em;
   margin: 28px auto 0;
+  @include small-screen {
+    font-size: 3em;
+  }
 }
 
 .articles {
@@ -150,12 +194,18 @@ input:-internal-autofill-selected {
 .cardGame {
   width: calc(33.33% - 20px);
   margin: 10px;
+  @include medium-screen {
+    width: calc(50% - 20px);
+  }
+  @include small-screen {
+    width: calc(100% - 20px);
+  }
 }
 
 .cardGame__imgBlock {
   position: relative;
   &:hover .imgBlock__info {
-    display: block;
+    display: flex;
 }
 
 .imgBlock__img {
@@ -177,6 +227,9 @@ input:-internal-autofill-selected {
   background-color: silver;
   height: calc(100%);
   background-color: $bg-color;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 
   .info__genre {
     font-weight: 200;
@@ -221,6 +274,10 @@ input:-internal-autofill-selected {
   margin-bottom: 50px;
   background-position: center;
   position: relative;
+  @include mobile-screen {
+    margin-top: 20px;
+  }
+  
 
   &__websiteBtn {
     width: 250px;
@@ -252,6 +309,8 @@ input:-internal-autofill-selected {
   .vote {
     font-weight: 600;
     color: $main-color;
+    margin: 16px 0px 16px 20px;
+    min-width: 124px;
   }
 }
 
@@ -295,5 +354,8 @@ input:-internal-autofill-selected {
   &__img {
     width: calc(50% - 20px);
     margin: 10px;
+    @include mobile-screen {
+      width: calc(100% - 20px);
+    }
   }
 }
