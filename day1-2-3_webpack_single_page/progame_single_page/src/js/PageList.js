@@ -187,9 +187,6 @@ const platfromListener = () => {
   // Listener
   platformSelect.addEventListener('change', function() {
     const articleCount = document.querySelectorAll('.cardGame').length
-    console.log(`research value = ${research.value}`)
-    console.log(`articleCount = ${articleCount}`)
-    console.log(`platform value = ${platformSelect.value}`)
     PageList(research.value, articleCount, platformSelect.value)
   })
 }
