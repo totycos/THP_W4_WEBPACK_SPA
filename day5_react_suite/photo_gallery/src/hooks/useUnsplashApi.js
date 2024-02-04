@@ -32,8 +32,7 @@ const useUnsplashApi = () => {
       setLoading(false);
     }
   };
-  
-console.log('reponse maj dans : useUnsplashApi', response)
+
   return { response, loading, error, fetchDataAsync, fetchMoreData };
 };
 

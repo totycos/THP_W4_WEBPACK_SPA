@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { useEffect } from 'react';
-import { useState } from 'react';
 import SearchBar from './components/SearchBar'
 import Images from './components/Images'
 import ShowMoreBtn from './components/ShowMoreBtn'
@@ -19,10 +18,6 @@ const App = () => {
     // Déclenchez la recherche initiale ici avec des valeurs par défaut ou vides
     fetchDataAsync();
   }, []);
-
-  useEffect(() => {
-    console.log('response maj dans : App', response)
-  }, [response])
 
   return (
     <div>

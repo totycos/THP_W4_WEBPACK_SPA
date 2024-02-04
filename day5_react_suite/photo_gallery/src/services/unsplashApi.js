@@ -21,9 +21,7 @@ export const fetchData = async (search, size, page) => {
             throw new Error('Network response was not ok');
         }
         else {
-            console.log(`finalUrl : ${finalUrl}`)
             const responseJson = await response.json()
-            console.log('response maj dans : unplashApi', responseJson)
             return search ? responseJson.results : responseJson;
         }
 
