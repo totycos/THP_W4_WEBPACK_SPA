@@ -8,8 +8,6 @@ const Images = ({ response, loading, error }) => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error loading images: {error.message}</p>;
 
-  console.log('Data dans Images', response)
-
   return (
     <ResponsiveMasonry columnsCountBreakPoints={{ 200: 1, 350: 2, 750: 3, 900: 4 }}>
       <Masonry gutter={"8px"} className='cardContainer'>

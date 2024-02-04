@@ -13,16 +13,12 @@ const App = () => {
 
   useEffect(() => {
     // Déclenchez la recherche initiale ici avec des valeurs par défaut ou vides
-    fetchDataAsync();
+    fetchDataAsync('', '');
   }, []);
-
-  useEffect(() => {
-    console.log('response maj dans : App', response)
-  }, [response])
 
   return (
     <div>
-      <SearchBar fetchDataAsync={fetchDataAsync}/>
+      <SearchBar fetchDataAsync={fetchDataAsync} />
       <Images response={response} loading={loading} error={error} />
       <ShowMoreBtn />
     </div>
