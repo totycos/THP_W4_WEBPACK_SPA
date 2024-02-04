@@ -1,9 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { useEffect } from 'react';
+import Logo from './components/Logo'
 import SearchBar from './components/SearchBar'
 import Images from './components/Images'
 import ShowMoreBtn from './components/ShowMoreBtn'
+import ScrollToTopButton from './components/ScrollToTopButton'
+import Footer from './components/Footer'
+
 import useUnsplashApi from './hooks/useUnsplashApi';
 import './index.scss'
 
@@ -21,9 +25,12 @@ const App = () => {
 
   return (
     <div>
+      <Logo />
       <SearchBar fetchDataAsync={fetchDataAsync}/>
       <Images response={response} loading={loading} error={error} />
       <ShowMoreBtn onClick={handleShowMore}/>
+      <ScrollToTopButton />
+      <Footer />
     </div>
   )
 };

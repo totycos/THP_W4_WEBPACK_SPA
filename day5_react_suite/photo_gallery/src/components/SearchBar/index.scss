@@ -1,9 +1,9 @@
 #searchBar {
     width: 212px;
     height: 27px;
-    position: fixed;
+    position: absolute;
     z-index: 2;
-    right: 228px;
+    right: 218px;
     top: 30px;
     border: 8px solid black;
     font-weight: 900;
@@ -13,9 +13,9 @@
 #sizeOption {
     width: 114px;
     height: 27px;
-    position: fixed;
+    position: absolute;
     z-index: 2;
-    right: 78px;
+    right: 68px;
     top: 30px;
     border: 8px solid black;
     font-weight: 900;
@@ -26,9 +26,9 @@
     background-color: black;
     height: 27px;
     width: 12px;
-    position: fixed;
+    position: absolute;
     z-index: 2;
-    right: 30px;
+    right: 20px;
     top: 30px;
     border: 8px solid black;
     padding: 0px 14px;
