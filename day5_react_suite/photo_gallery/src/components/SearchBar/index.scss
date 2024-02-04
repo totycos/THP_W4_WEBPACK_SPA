@@ -1,3 +1,15 @@
+@mixin small-screen {
+    @media only screen and (max-width: 600px) {
+        @content
+    }
+}
+
+@mixin phone-screen {
+    @media only screen and (max-width: 400px) {
+        @content
+    }
+}
+
 #searchBar {
     width: 212px;
     height: 27px;
@@ -8,6 +20,16 @@
     border: 8px solid black;
     font-weight: 900;
     padding: 0px 14px;
+
+    @include small-screen {
+        width: 158px;
+        font-size: 10px;
+        right: 190px;
+    }
+
+    @include phone-screen {
+        right: 163px;
+    }
 }
 
 #sizeOption {
@@ -20,6 +42,15 @@
     border: 8px solid black;
     font-weight: 900;
     padding: 0px 14px;
+
+    @include small-screen {
+        right: 45px;
+        font-size: 10px;
+    }
+
+    @include phone-screen {
+        right: 15px;
+    }
 }
 
 #searchBtn {
@@ -33,6 +64,11 @@
     border: 8px solid black;
     padding: 0px 14px;
     cursor: pointer;
+
+    @include phone-screen {
+        right: -2px;
+    }
+
     img {
         width: 18px;
         padding-top: 4px;
