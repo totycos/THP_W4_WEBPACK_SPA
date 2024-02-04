@@ -9,7 +9,11 @@ import useUnsplashApi from './hooks/useUnsplashApi';
 import './index.scss'
 
 const App = () => {
-  const { response, loading, error, fetchDataAsync } = useUnsplashApi();
+  const { response, loading, error, fetchDataAsync, fetchMoreData } = useUnsplashApi();
+
+  const handleShowMore = () => {
+    fetchMoreData();
+  };
 
   useEffect(() => {
     // Déclenchez la recherche initiale ici avec des valeurs par défaut ou vides
@@ -24,7 +28,7 @@ const App = () => {
     <div>
       <SearchBar fetchDataAsync={fetchDataAsync}/>
       <Images response={response} loading={loading} error={error} />
-      <ShowMoreBtn />
+      <ShowMoreBtn onClick={handleShowMore}/>
     </div>
   )
 };

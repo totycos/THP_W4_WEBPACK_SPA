@@ -1,12 +1,9 @@
-import { useState } from 'react';
 import './index.scss'
 
-const ShowMoreBtn = () => {
-
-    
+const ShowMoreBtn = ({ onClick }) => {
 
     return (
-        <div className='showMoreContainer' >
+        <div className='showMoreContainer' onClick={ onClick }>
             <button className='showMoreContainer__btn'>Show more</button>
         </div>
     );
